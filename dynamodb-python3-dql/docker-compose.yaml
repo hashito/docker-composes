@@ -2,7 +2,7 @@ version: '3.7'
 services:
   dynamodb:
     image: amazon/dynamodb-local:latest
-    container_name: dynamodb-db
+    container_name: dynamodb-db2
     environment:
       - AWS_ACCESS_KEY_ID=fakeMyKeyId
       - AWS_SECRET_ACCESS_KEY=fakeSecretAccessKey
@@ -14,9 +14,11 @@ services:
     environment:
       - TABLE_NAME=dynamodb
       - END_POINT=http://dynamodb:8000
+      - HOST=dynamodb
+      - PORT=8000
       - AWS_ACCESS_KEY_ID=fakeMyKeyId
       - AWS_SECRET_ACCESS_KEY=fakeSecretAccessKey
       - AWS_DEFAULT_REGION=region=us-west-2
 
-    container_name: dynamodb-python
+    container_name: dynamodb-python2
   
